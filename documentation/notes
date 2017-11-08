@@ -1,0 +1,27 @@
+2017-11-08
+
+Task
+
+1. Pull out the coding region.
+2. Anything changed between 37 and 38 builds.
+
+Ideas
+- XML file with a difference between builds.
+-	User input gene – looks up what XML file to load into python.
+
+User stories
+-	Take in an XML file for a specific gene.
+-	Display the coding region sequence to user for all transcripts if applicable (with RefSeq id).
+-	Pull out coordinates for each build.  Display to user.
+-	If a difference detected highlight to user. Display the difference it says in the file.
+
+
+Architecture & Tests
+
+
+
+
+
+
+Questions:
+-	Do we need the builds?
