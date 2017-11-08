@@ -1,27 +1,42 @@
 2017-11-08
 
 Task
-
+Program used by lab to check difference in an LRG between different builds.
 1. Pull out the coding region.
 2. Anything changed between 37 and 38 builds.
 
-Ideas
-- XML file with a difference between builds.
--	User input gene – looks up what XML file to load into python.
-
 User stories
+- Small command line program used by lab to check difference in an LRG between different builds.
+- Script to be used on few machines (i.e. not a program with a website interface).
 -	Take in an XML file for a specific gene.
 -	Display the coding region sequence to user for all transcripts if applicable (with RefSeq id).
--	Pull out coordinates for each build.  Display to user.
+-	Pull out coordinates for each build. Display to user.
 -	If a difference detected highlight to user. Display the difference it says in the file.
 
+-------
+Architecture:
+- ElementTree module.
+- If no diff tag then print no difference to user.
 
-Architecture & Tests
+Functions:
+1. Loads the XML file into Python.
+2. Pull coordinates for coding regions for all transcripts, pull out Genomic sequence, displays coding
+region by uses index of the coordinate relative to the sequence. Display comments related to transcripts.
+3. Display the build coordinates to user.
+4. Display difference between builds data.
 
+------
+Tests:
+- Use a dummy xml file with specific tags that the program should look for.
+- If no data between tags - then throw an error (assert).
+- Test using xml file with a difference(s) and one without, does it handle multiple differences?
+- Dummy xml file with none of the specific tags.
+- Non xml file.
+- xml file with data missing i.e. no genomic sequence to refer back to.
 
-
-
-
-
+------
 Questions:
 -	Do we need the builds?
+
+Additional ideas
+-	User input gene – looks up what XML file to load into python.
