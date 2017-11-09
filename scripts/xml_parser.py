@@ -49,6 +49,11 @@ def transcript_comment(root, trans_name):
     comment = root.find(find_str).text
     return comment
 
+def exons(root, trans_name):
+    find_str = "./fixed_annotation/transcript/" + "[@name=" + "'" + trans_name + "'" + "]/exon"
+    exons = root.findall(find_str)
+    return exons
+    
 def build_coord(root):
     all_build = root.findall("./updatable_annotation/annotation_set/[@type='lrg']/mapping")
     builds = {}
@@ -68,6 +73,7 @@ def transcripts(root):
         num_of_t.append(i.attrib['name'])
     return num_of_t
 
+    
 if root.tag == "lrg":
     print("""*** XML Parser for Locus Reference Genomic (LRG) files ***\n\nUsage: python xml_parser.py path_to_LRG_file/LRG.xml\n\n\n
           """)
@@ -88,7 +94,17 @@ if root.tag == "lrg":
         print("\n")
         print(transcript_comment(root,i))
         print("\n")
+        print(exons(root, i))
+        for k in exons(root, i):
+            print(k.attrib)
+    
+        
+        
+        for k in exons:
+            print(k.attrib)
+            
     build_info = build_coord(root)
+    
     
     for i in build_info:
         print("In build %r" % (i))
@@ -101,6 +117,14 @@ if root.tag == "lrg":
                 print("Type\tRef_coord\tOrig_base\tLRG_base\tLRG_coord")
                 print("%r\t%r\t%r\t%r\t%r\n" % (i.attrib["type"], i.attrib["other_start"], i.attrib["other_sequence"], i.attrib["lrg_sequence"], i.attrib["lrg_start"]))
 
-
+# To do:
+# exons
+# Assets
+# Tests
+# docstrings
+# tidy up the interface
+# also write output to text file
+                
+                
 
          
