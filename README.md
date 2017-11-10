@@ -7,3 +7,5 @@ run.py calls functions defined in xml_parser.py to do the following:
   2. Prints the number of transcripts
   3. Prints each transcript in relation to LRG sequence and any comments related to the sequence
   4. Prints the build information within the LRG file including: reference co-ordinates of the builds and any differences between the builds 
+
+The test_xml_parser.py performs unit tests on the functions in the xml_parser.py to ensure that each function is returning the correct type
