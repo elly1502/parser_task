@@ -13,7 +13,7 @@ except ImportError:
 import re
 import sys
 #from sys import argv
-#import glob 
+#import glob
 
 #script, xml_file = argv
 
@@ -29,31 +29,31 @@ def load_file(xml_file):
     # error if no file given or file doesnt end in .xml
     assert (len(xml_file) > 1), "No file given"
     assert (".xml" in xml_file), "File given is not an .xml file"
-    
+
     if re.search(r".*LRG_.*.xml", xml_file):
         tree = ET.parse(xml_file)
         return tree.getroot()
-    else: 
+    else:
         message = "Error: File %r is not an LRG file. Programme will close!" % xml_file
         return sys.exit(message)
 
 # Pull out genomic sequence
 def genomic_seq(root):
-    """ Returns genomic DNA sequence of root LRG file 
+    """ Returns genomic DNA sequence of root LRG file
     Usage: genomic_seq(root) """
     dna_seq = root.find("./fixed_annotation/sequence").text
     return dna_seq
 
 # Get start and stop coordinates for a transcript
-def find_coding_coordinate(root, trans_name):  
+def find_coding_coordinate(root, trans_name):
     """ Returns start and end coordinates for a transcript in LRG file """
     # build a str to point to correct child in tree for specific transcript
-    find_str = "./fixed_annotation/transcript/" + "[@name=" + "'" + trans_name + "'" + "]/coding_region/coordinates" 
+    find_str = "./fixed_annotation/transcript/" + "[@name=" + "'" + trans_name + "'" + "]/coding_region/coordinates"
     # Get start and stop attributes
     start = root.find(find_str).attrib['start']
-    end = root.find(find_str).attrib['end']       
+    end = root.find(find_str).attrib['end']
     return start, end
-    
+
 def coding_region(root, trans_name):
     """ Returns coding region DNA sequence for a transcript in LRG file """
     # Get DNA sequence and coordinates
@@ -66,7 +66,7 @@ def coding_region(root, trans_name):
     return seq[start:stop]
 
 def transcript_comment(root, trans_name):
-    
+    '''Returns comments related to each transcript '''
     find_str = "./fixed_annotation/transcript/" + "[@name=" + "'" + trans_name + "'" + "]/comment"
     comment = root.find(find_str).text
     return comment
@@ -87,6 +87,7 @@ def exons_coord(root, trans_name):
      return exon_coords
 
 def build_coord(root):
+    ''' Returns a dictionary of the attributes from the mapping_span tag  '''
     all_build = root.findall("./updatable_annotation/annotation_set/[@type='lrg']/mapping")
     builds = {}
     for i in all_build:
@@ -94,13 +95,15 @@ def build_coord(root):
     return builds
 
 def build_diff(root, build_num):
+    ''' Returns a dictionary of the differences between the genome builds from the diffs tag '''
     find_string = "./updatable_annotation/annotation_set/[@type='lrg']/mapping/[@coord_system=" + "'" + str(build_num) +  "'" + "]/mapping_span/diff"
     difference = root.findall(find_string)
     return difference
 
 def transcripts(root):
+    ''' Returns a list of the transcripts in the LRG file '''
     num_of_t = list()
-    t_list = root.findall("./fixed_annotation/transcript")  
+    t_list = root.findall("./fixed_annotation/transcript")
     for i in t_list:
         num_of_t.append(i.attrib['name'])
     return num_of_t
@@ -113,7 +116,3 @@ def transcripts(root):
 # docstrings
 # tidy up the interface
 # also write output to text file
-                
-                
-
-         
