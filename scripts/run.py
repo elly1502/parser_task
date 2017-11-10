@@ -60,7 +60,8 @@ if root.tag == "lrg":
                 print("Type\tRef_coord\tOrig_base\tLRG_base\tLRG_coord")
                 print("%r\t%r\t%r\t%r\t%r\n" % (i.attrib["type"], i.attrib["other_start"], i.attrib["other_sequence"], i.attrib["lrg_sequence"], i.attrib["lrg_start"]))
     print("~" * 20)        
-
+else:
+    print("File is not an LRG file. Exiting....")
 
 #ex_coord = exons_coord(root, i)
 #        print(ex_coord)
