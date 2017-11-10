@@ -41,5 +41,16 @@ class finding_coord_TestCase(unittest.TestCase):
         """ Tests whether variables and be converted into int """
         self.assertIsInstance(find_coding_coordinate(ET.parse('/Users/HelenaSpiewak/Programming_STP_Y2/parser_task/data/LRG_public_xml_files/LRG_1.xml').getroot(), "t1"), tuple) 
 
+class test_trans(unittest.TestCase):
+    """ Test for function related to different transcripts in xml_parser.xml """
+    
+    def test_coding_region(self):
+        """ Test that coding region returns str """
+        self.assertIsInstance(coding_region(ET.parse('/Users/HelenaSpiewak/Programming_STP_Y2/parser_task/data/LRG_public_xml_files/LRG_1.xml').getroot(), "t1"), str)
+
+    def test_transcipt_comments(self):
+        """ Test that comments returned """
+        self.assertIsInstance(transcript_comment(ET.parse('/Users/HelenaSpiewak/Programming_STP_Y2/parser_task/data/LRG_public_xml_files/LRG_1.xml').getroot(), "t1"), str)
+        
 if __name__ == '__main__':
     unittest.main()
