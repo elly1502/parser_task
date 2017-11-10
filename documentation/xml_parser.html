@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module xml_parser</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>xml_parser</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/HelenaSpiewak/Programming_STP_Y2/parser_task/scripts/xml_parser.py">/Users/HelenaSpiewak/Programming_STP_Y2/parser_task/scripts/xml_parser.py</a></font></td></tr></table>
+    <p><tt>Created&nbsp;on&nbsp;Thu&nbsp;Nov&nbsp;&nbsp;9&nbsp;10:45:07&nbsp;2017<br>
+&nbsp;<br>
+@author:&nbsp;HelenaSpiewak</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="xml.etree.cElementTree.html">xml.etree.cElementTree</a><br>
+</td><td width="25%" valign=top><a href="re.html">re</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-build_coord"><strong>build_coord</strong></a>(root)</dt><dd><tt>Returns&nbsp;a&nbsp;dictionary&nbsp;of&nbsp;the&nbsp;attributes&nbsp;from&nbsp;the&nbsp;mapping_span&nbsp;tag</tt></dd></dl>
+ <dl><dt><a name="-build_diff"><strong>build_diff</strong></a>(root, build_num)</dt><dd><tt>Returns&nbsp;a&nbsp;dictionary&nbsp;of&nbsp;the&nbsp;differences&nbsp;between&nbsp;the&nbsp;genome&nbsp;builds&nbsp;from&nbsp;the&nbsp;diffs&nbsp;tag</tt></dd></dl>
+ <dl><dt><a name="-coding_region"><strong>coding_region</strong></a>(root, trans_name)</dt><dd><tt>Returns&nbsp;coding&nbsp;region&nbsp;DNA&nbsp;sequence&nbsp;for&nbsp;a&nbsp;transcript&nbsp;in&nbsp;LRG&nbsp;file</tt></dd></dl>
+ <dl><dt><a name="-exons_coord"><strong>exons_coord</strong></a>(root, trans_name)</dt><dd><tt>Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;exon&nbsp;coordinates</tt></dd></dl>
+ <dl><dt><a name="-exons_labels"><strong>exons_labels</strong></a>(root, trans_name)</dt><dd><tt>Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;exon&nbsp;labels</tt></dd></dl>
+ <dl><dt><a name="-find_coding_coordinate"><strong>find_coding_coordinate</strong></a>(root, trans_name)</dt><dd><tt>Returns&nbsp;start&nbsp;and&nbsp;end&nbsp;coordinates&nbsp;for&nbsp;a&nbsp;transcript&nbsp;in&nbsp;LRG&nbsp;file</tt></dd></dl>
+ <dl><dt><a name="-genomic_seq"><strong>genomic_seq</strong></a>(root)</dt><dd><tt>Returns&nbsp;genomic&nbsp;DNA&nbsp;sequence&nbsp;of&nbsp;root&nbsp;LRG&nbsp;file<br>
+Usage:&nbsp;<a href="#-genomic_seq">genomic_seq</a>(root)</tt></dd></dl>
+ <dl><dt><a name="-load_file"><strong>load_file</strong></a>(xml_file)</dt><dd><tt>Load&nbsp;in&nbsp;XML&nbsp;file&nbsp;and&nbsp;return&nbsp;root</tt></dd></dl>
+ <dl><dt><a name="-transcript_comment"><strong>transcript_comment</strong></a>(root, trans_name)</dt><dd><tt>Returns&nbsp;comments&nbsp;related&nbsp;to&nbsp;each&nbsp;transcript</tt></dd></dl>
+ <dl><dt><a name="-transcripts"><strong>transcripts</strong></a>(root)</dt><dd><tt>Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;the&nbsp;transcripts&nbsp;in&nbsp;the&nbsp;LRG&nbsp;file</tt></dd></dl>
+</td></tr></table>
+</body></html>
