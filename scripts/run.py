@@ -19,38 +19,41 @@ root = load_file(xml_file)
 root = load_file(xml_file)
 
 if root.tag == "lrg":
-    print("""*** XML Parser for Locus Reference Genomic (LRG) files ***\n\nUsage: python xml_parser.py path_to_LRG_file/LRG.xml\n\n\n
+    print("""*** XML Parser for Locus Reference Genomic (LRG) files ***\n\nUsage: python xml_parser.py path_to_LRG_file/LRG.xml\n
           """)
-    print("You have inputted "+ str(xml_file) + "\n")
-
+    print("~" * 20)
     ## Print name and number of transcripts 
+    print("\n~~ TRANSCRIPT DATA ~~\n")
     print('The xml file ' + str(xml_file) + ' has the following transcripts:')
-   
+
     num_of_t = transcripts(root)
     print(num_of_t)
     print("\n")
-    
+
     for i in num_of_t:
         print("The coding region for %r is:" % i)
-        print("\n")
         print(coding_region(root,i))
         print("\n")
+        print("Comments for transcript %r:" %i)
         print(transcript_comment(root,i))
         print("\n")
-        
+        print("~" * 20)
+    
+    # Display build difference info
+    print("\n~~ BUILD DIFFERENCE DATA ~~\n")
     build_info = build_coord(root)
     
     for i in build_info:
         print("In build %r" % (i))
         print("Locus maps to coordinates: start %r and end % r. \n" % (build_info[i]['other_start'], build_info[i]['other_end']))
-     
+        print("~" * 20)
         diffs = build_diff(root,i)
         if diffs:
             for i in diffs:
-                print("Differences:\n")
+                print("Differences:")
                 print("Type\tRef_coord\tOrig_base\tLRG_base\tLRG_coord")
                 print("%r\t%r\t%r\t%r\t%r\n" % (i.attrib["type"], i.attrib["other_start"], i.attrib["other_sequence"], i.attrib["lrg_sequence"], i.attrib["lrg_start"]))
-                
+    print("~" * 20)        
 
 
 #ex_coord = exons_coord(root, i)

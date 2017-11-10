@@ -68,7 +68,10 @@ def coding_region(root, trans_name):
 def transcript_comment(root, trans_name):
     '''Returns comments related to each transcript '''
     find_str = "./fixed_annotation/transcript/" + "[@name=" + "'" + trans_name + "'" + "]/comment"
-    comment = root.find(find_str).text
+    if root.find(find_str):
+        comment = root.find(find_str).text
+    else:
+        comment = "None"
     return comment
 
 def exons_labels(root, trans_name):
