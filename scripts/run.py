@@ -3,7 +3,10 @@
 """
 Created on Fri Nov 10 09:35:21 2017
 
-@author: HelenaSpiewak
+@author: HelenaSpiewak & DanEgan
+
+Script that calls functios in xml_parser on a given input LRG.xml file
+
 """
 
 from xml_parser import *
@@ -13,11 +16,12 @@ script, xml_file = argv
 
 root = load_file(xml_file)
 
-# Display to user
 # test file
 #xml_file = '/Users/HelenaSpiewak/Programming_STP_Y2/parser_task/data/LRG_public_xml_files/LRG_1.xml'
+# store file for loading
 root = load_file(xml_file)
 
+# check that file is an lrg file
 if root.tag == "lrg":
     print("""*** XML Parser for Locus Reference Genomic (LRG) files ***\n\nUsage: python xml_parser.py path_to_LRG_file/LRG.xml\n
           """)
@@ -29,7 +33,7 @@ if root.tag == "lrg":
     num_of_t = transcripts(root)
     print(num_of_t)
     print("\n")
-
+    # for each transcript print coding region and comments
     for i in num_of_t:
         print("The coding region for %r is:" % i)
         print(coding_region(root,i))
@@ -44,6 +48,7 @@ if root.tag == "lrg":
     build_info = build_coord(root)
     
     for i in build_info:
+        # display build coordinates
         print("In build %r" % (i))
         print("Locus maps to coordinates: start %r and end % r. \n" % (build_info[i]['other_start'], build_info[i]['other_end']))
         print("~" * 20)
@@ -51,6 +56,7 @@ if root.tag == "lrg":
         if diffs:
             for i in diffs:
                 print("Differences:")
+                # display differences written in xml file
                 print("Type\tRef_coord\tOrig_base\tLRG_base\tLRG_coord")
                 print("%r\t%r\t%r\t%r\t%r\n" % (i.attrib["type"], i.attrib["other_start"], i.attrib["other_sequence"], i.attrib["lrg_sequence"], i.attrib["lrg_start"]))
     print("~" * 20)        
