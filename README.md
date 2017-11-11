@@ -11,11 +11,12 @@ run.py calls functions defined in xml_parser.py to do the following:
 The test_xml_parser.py performs unit tests on the functions in the xml_parser.py to ensure that each function is returning the correct type
 
 ### Example use
-Input: python run.py ../data/LRG_public_xml_files/LRG_13.xml
-Output to console:
+~~~
+$ python run.py ../data/LRG_public_xml_files/LRG_13.xml
+
 ****** XML Parser for Locus Reference Genomic (LRG) files (v1) ******
 
-~~~~~~~~~~~~~~~~~~~~
+"~~~~~~~~~~~~~~~~~~~~"
 
 ~~ TRANSCRIPT DATA ~~
 
@@ -27,14 +28,14 @@ ATGGGCTTCC.....TTCAAGCCTGA
 
 Comments for transcript 't1':
 None
-~~~~~~~~~~~~~~~~~~~~
-
+"~~~~~~~~~~~~~~~~~~~~
+"
 The coding region for 't2' is:
 ATGGGCTTC.....AATGCCAACTAA
 
 Comments for transcript 't2':
 None
-~~~~~~~~~~~~~~~~~~~~
+"~~~~~~~~~~~~~~~~~~~~"
 
 ~~ BUILD DIFFERENCE DATA ~~
 
@@ -49,4 +50,5 @@ Locus maps to coordinates: start '14964669' and end '14977286'.
 Sequence differences for build 'GRCh38.p7':
 No sequence differences to report.
 
-~~~~~~~~~~~~~~~~~~~~
+"~~~~~~~~~~~~~~~~~~~~"
+~~~
