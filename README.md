@@ -14,11 +14,11 @@ The test_xml_parser.py performs unit tests on the functions in the xml_parser.py
 ~~~
 $ python run.py ../data/LRG_public_xml_files/LRG_13.xml
 
-****** XML Parser for Locus Reference Genomic (LRG) files (v1) ******
+\t****** XML Parser for Locus Reference Genomic (LRG) files (v1) ******
 
-"~~~~~~~~~~~~~~~~~~~~"
+--------------------
 
-~~ TRANSCRIPT DATA ~~
+** TRANSCRIPT DATA **
 
 The LRG file ../data/LRG_public_xml_files/LRG_13.xml has the following 2 transcript(s):
 t1, t2
@@ -28,16 +28,16 @@ ATGGGCTTCC.....TTCAAGCCTGA
 
 Comments for transcript 't1':
 None
-"~~~~~~~~~~~~~~~~~~~~
-"
+--------------------
+
 The coding region for 't2' is:
 ATGGGCTTC.....AATGCCAACTAA
 
 Comments for transcript 't2':
 None
-"~~~~~~~~~~~~~~~~~~~~"
+--------------------
 
-~~ BUILD DIFFERENCE DATA ~~
+** BUILD DIFFERENCE DATA **
 
 In build 'GRCh37.p13'
 Locus maps to coordinates: start '42576' and end '55193'.
@@ -50,5 +50,5 @@ Locus maps to coordinates: start '14964669' and end '14977286'.
 Sequence differences for build 'GRCh38.p7':
 No sequence differences to report.
 
-"~~~~~~~~~~~~~~~~~~~~"
+--------------------
 ~~~

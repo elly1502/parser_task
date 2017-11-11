@@ -1,9 +1,8 @@
 
 	****** XML Parser for Locus Reference Genomic (LRG) files (v1) ******
 
-~~~~~~~~~~~~~~~~~~~~
 
-~~ TRANSCRIPT DATA ~~
+** TRANSCRIPT DATA **
 
 The LRG file ../data/LRG_public_xml_files/LRG_1.xml has the following 1 transcript(s):
 t1
@@ -13,14 +12,9 @@ ATGTTCAGCTTTGTGGACCTCCGGCTCCTGCTCCTCTTAGCGGCCACCGCCCTCCTGACGCACGGCCAAGAGGAAGGCCA
 
 Comments for transcript 't1':
 None
-~~~~~~~~~~~~~~~~~~~~
+--------------------
 
-~~ BUILD DIFFERENCE DATA ~~
-
-In build 'GRCh38.p7'
-Locus maps to coordinates: start '50182096' and end '50206639'.
-Sequence differences for build 'GRCh38.p7':
-No sequence differences to report.
+** BUILD DIFFERENCE DATA **
 
 In build 'GRCh37.p13'
 Locus maps to coordinates: start '48259457' and end '48284000'.
@@ -28,4 +22,9 @@ Sequence differences for build 'GRCh37.p13':
 Type	Ref_coord	Orig_base	LRG_base	LRG_coord
 'mismatch'	'48265495'	'A'	'G'	'18506'
 
-~~~~~~~~~~~~~~~~~~~~
+In build 'GRCh38.p7'
+Locus maps to coordinates: start '50182096' and end '50206639'.
+Sequence differences for build 'GRCh38.p7':
+No sequence differences to report.
+
+--------------------

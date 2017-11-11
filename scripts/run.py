@@ -28,11 +28,11 @@ parser=MyParser(description="""Program takes a LRG.xml file and returns coding r
 transcript comments, build coordinates and build differences.""", formatter_class=argparse.RawDescriptionHelpFormatter, epilog="""Example of use:\n
 Input: python run.py ../data/LRG_public_xml_files/LRG_13.xml
 Output to console:
-****** XML Parser for Locus Reference Genomic (LRG) files (v1) ******
 
-~~~~~~~~~~~~~~~~~~~~
+\t****** XML Parser for Locus Reference Genomic (LRG) files (v1) ******
 
-~~ TRANSCRIPT DATA ~~
+
+** TRANSCRIPT DATA **
 
 The LRG file ../data/LRG_public_xml_files/LRG_13.xml has the following 2 transcript(s):
 t1, t2
@@ -42,16 +42,16 @@ ATGGGCTTCC.....TTCAAGCCTGA
 
 Comments for transcript 't1':
 None
-~~~~~~~~~~~~~~~~~~~~
+--------------------
 
 The coding region for 't2' is:
 ATGGGCTTC.....AATGCCAACTAA
 
 Comments for transcript 't2':
 None
-~~~~~~~~~~~~~~~~~~~~
+--------------------
 
-~~ BUILD DIFFERENCE DATA ~~
+** BUILD DIFFERENCE DATA **
 
 In build 'GRCh37.p13'
 Locus maps to coordinates: start '42576' and end '55193'.
@@ -64,7 +64,7 @@ Locus maps to coordinates: start '14964669' and end '14977286'.
 Sequence differences for build 'GRCh38.p7':
 No sequence differences to report.
 
-~~~~~~~~~~~~~~~~~~~~
+--------------------
 """)
 
 # assign arguments
@@ -81,9 +81,8 @@ root = load_file(xml_file)
 if root.tag == "lrg":
     # display welcome message
     print("""\n\t****** XML Parser for Locus Reference Genomic (LRG) files (v1) ******\n""")
-    print("~" * 20)
 
-    print("\n~~ TRANSCRIPT DATA ~~\n")
+    print("\n** TRANSCRIPT DATA **\n")
     # get transcript info
     num_of_t = transcripts(root)
     print('The LRG file ' + str(xml_file) + ' has the following %r transcript(s):' % len(num_of_t))
@@ -95,9 +94,9 @@ if root.tag == "lrg":
         print(coding_region(root,i))
         print("\nComments for transcript %r:" %i)
         print(transcript_comment(root,i))
-        print("~" * 20)
+        print("-" * 20)
 
-    print("\n~~ BUILD DIFFERENCE DATA ~~\n")
+    print("\n** BUILD DIFFERENCE DATA **\n")
     # get build coordinates from xml file
     build_info = build_coord(root)
     for i in build_info:
@@ -114,7 +113,7 @@ if root.tag == "lrg":
                 print("%r\t%r\t%r\t%r\t%r\n" % (i.attrib["type"], i.attrib["other_start"], i.attrib["other_sequence"], i.attrib["lrg_sequence"], i.attrib["lrg_start"]))
         else:
             print("No sequence differences to report.\n")
-    print("~" * 20)
+    print("-" * 20)
 else:
     print("File is not an LRG file. Exiting....")
 
