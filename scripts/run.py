@@ -28,34 +28,41 @@ parser=MyParser(description="""Program takes a LRG.xml file and returns coding r
 transcript comments, build coordinates and build differences.""", formatter_class=argparse.RawDescriptionHelpFormatter, epilog="""Example of use:\n
 Input: python run.py ../data/LRG_public_xml_files/LRG_13.xml
 Output to console:
-*** XML Parser for Locus Reference Genomic (LRG) files ***
+****** XML Parser for Locus Reference Genomic (LRG) files (v1) ******
 
 ~~~~~~~~~~~~~~~~~~~~
+
 ~~ TRANSCRIPT DATA ~~
-The xml file ../data/LRG_public_xml_files/LRG_13.xml has the following transcripts:
-['t1, 't2']
+
+The LRG file ../data/LRG_public_xml_files/LRG_13.xml has the following 2 transcript(s):
+t1, t2
 
 The coding region for 't1' is:
-ATGTTCAGCT.....TCGACGTTGGCCCTGTCTGCTTCCTGTAA
+ATGGGCTTCC.....TTCAAGCCTGA
 
 Comments for transcript 't1':
 None
+~~~~~~~~~~~~~~~~~~~~
 
+The coding region for 't2' is:
+ATGGGCTTC.....AATGCCAACTAA
+
+Comments for transcript 't2':
+None
 ~~~~~~~~~~~~~~~~~~~~
 
 ~~ BUILD DIFFERENCE DATA ~~
 
-In build 'GRCh38.p7'
-Locus maps to coordinates: start '50182096' and end '50206639'.
-
-~~~~~~~~~~~~~~~~~~~~
 In build 'GRCh37.p13'
-Locus maps to coordinates: start '48259457' and end '48284000'.
-
-~~~~~~~~~~~~~~~~~~~~
-Differences:
+Locus maps to coordinates: start '42576' and end '55193'.
+Sequence differences for build 'GRCh37.p13':
 Type	Ref_coord	Orig_base	LRG_base	LRG_coord
-'mismatch'	'48265495'	'A'	'G'	'18506'
+'mismatch'	'14991539'	'A'	'G'	'7294'
+
+In build 'GRCh38.p7'
+Locus maps to coordinates: start '14964669' and end '14977286'.
+Sequence differences for build 'GRCh38.p7':
+No sequence differences to report.
 
 ~~~~~~~~~~~~~~~~~~~~
 """)
@@ -73,7 +80,7 @@ root = load_file(xml_file)
 # check that file is an lrg file
 if root.tag == "lrg":
     # display welcome message
-    print("""\n\t****** XML Parser for Locus Reference Genomic (LRG) files ******\n""")
+    print("""\n\t****** XML Parser for Locus Reference Genomic (LRG) files (v1) ******\n""")
     print("~" * 20)
 
     print("\n~~ TRANSCRIPT DATA ~~\n")
