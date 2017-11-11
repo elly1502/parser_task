@@ -14,7 +14,7 @@ The test_xml_parser.py performs unit tests on the functions in the xml_parser.py
 ~~~
 $ python run.py ../data/LRG_public_xml_files/LRG_13.xml
 
-\t****** XML Parser for Locus Reference Genomic (LRG) files (v1) ******
+****** XML Parser for Locus Reference Genomic (LRG) files (v1) ******
 
 --------------------
 
